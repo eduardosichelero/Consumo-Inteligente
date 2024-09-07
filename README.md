@@ -1,13 +1,13 @@
 
 # Calculadora de Consumo de Combustível ⛽📊
 
-![imagem do projeto](assets/screenshots/fuelHome.png)
+![imagem do projeto](screenshots/fuelHome.png)
 
 ## Descrição
 
 Esta aplicação React Native permite calcular o consumo de combustível com base na quilometragem e na quantidade de litros de gasolina utilizada. A aplicação apresenta uma interface intuitiva que facilita o cálculo e a visualização do resultado, exibindo a classificação de consumo com base na média calculada. 🚗💨
 
-![imagem do projeto](assets/screenshots/fuelResult.png)
+![imagem do projeto](screenshots/fuelResult.png)
 
 ---
 
