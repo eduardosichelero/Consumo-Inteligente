@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+export default function HomeScreen({ navigation }) {
   const [km, setKm] = useState('');
   const [litros, setLitros] = useState('');
 
@@ -12,58 +12,74 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.title}>Calculadora de Consumo de Combustível</Text>
-      </View>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Quilometragem (KM):</Text>
-        <TextInput
-          style={styles.input}
-          keyboardType="numeric"
-          value={km}
-          onChangeText={setKm}
-        />
-        <Text style={styles.label}>Litros de Gasolina:</Text>
-        <TextInput
-          style={styles.input}
-          keyboardType="numeric"
-          value={litros}
-          onChangeText={setLitros}
-        />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          title="Calcular"
-          onPress={calcularMedia}
-          color="#007bff" // Cor do botão (ajuste conforme necessário)
-        />
+      <View style={styles.card}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>Calculadora de Consumo de Combustível</Text>
+        </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Quilometragem (KM):</Text>
+          <TextInput
+            style={styles.input}
+            keyboardType="numeric"
+            value={km}
+            onChangeText={setKm}
+          />
+          <Text style={styles.label}>Litros de Gasolina:</Text>
+          <TextInput
+            style={styles.input}
+            keyboardType="numeric"
+            value={litros}
+            onChangeText={setLitros}
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={calcularMedia}>
+            <Text style={styles.buttonText}>Calcular</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
     backgroundColor: '#fff',
+    padding: 15,
     justifyContent: 'center',
   },
-  headerContainer: {
+  card: {
+    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    padding: 15,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+  headerContainer: {
     marginBottom: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#333',
   },
   inputContainer: {
-    alignItems: 'center',
+    width: '100%',
   },
   label: {
     fontSize: 18,
     marginBottom: 8,
+    color: '#333',
   },
   input: {
     borderWidth: 1,
@@ -73,12 +89,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: '100%',
     borderRadius: 10,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#fff',
   },
   buttonContainer: {
-    alignItems: 'center',
     marginTop: 20,
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    width: 150,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
-
-export default HomeScreen;
